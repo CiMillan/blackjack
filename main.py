@@ -69,11 +69,17 @@ for _ in range(2):
 user_score = calculate_score(user_cards)
 computer_score = calculate_score(computer_cards)
 
+print(f"Your cards: {user_cards} Your score: {user_score} Computer first card: {computer_cards[0]}")
+
 if user_score == 0 or computer_score == 0 or user_score > 21:
   is_game_over = True
-
-
-#Hint 10: If the game has not ended, ask the user if they want to draw another card. If yes, then use the deal_card() function to add another card to the user_cards List. If no, then the game has ended.
+else:
+  #Hint 10: If the game has not ended, ask the user if they want to draw another card. If yes, then use the deal_card() function to add another card to the user_cards List. If no, then the game has ended.
+  user_get_another_card = input("Type 'y' to get another card, type 'n' to pass: ")
+  if user_get_another_card == "y":
+    user_cards.append(deal_card())
+  else:
+    is_game_over = True
 
 #Hint 11: The score will need to be rechecked with every new card drawn and the checks in Hint 9 need to be repeated until the game ends.
 
